@@ -11,17 +11,12 @@ public class P03_homePage {
         return Hooks.driver.findElement(By.id("customerCurrency"));
     }
     public List<WebElement> listOfItems(){
-        return Hooks.driver.findElements(By.className("product-item"));
+        return Hooks.driver.findElements(By.className("prices"));
     }
-//    public WebElement emailField(){
-//        return Hooks.driver.findElement(By.id("Email"));
-//    }
-//    public WebElement passwordField(){
-//        return Hooks.driver.findElement(By.id("Password"));
-//    }
-//    public WebElement clickLogin(){
-//        return Hooks.driver.findElement(By.xpath("//*[@class='button-1 login-button']"));
-//    }
+
+    public WebElement item(){
+        return Hooks.driver.findElement(By.className("prices"));
+    }
 
 
 

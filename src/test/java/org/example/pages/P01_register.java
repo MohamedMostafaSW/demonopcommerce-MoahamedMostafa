@@ -3,7 +3,6 @@ package org.example.pages;
 import org.example.stepDefs.Hooks;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Select;
 
 public class P01_register {
     By registerlink = By.className("ico-register");

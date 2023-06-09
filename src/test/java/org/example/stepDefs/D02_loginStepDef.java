@@ -5,7 +5,6 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.example.pages.P02_login;
-import org.openqa.selenium.By;
 import org.openqa.selenium.support.Color;
 import org.testng.asserts.SoftAssert;
 
