@@ -19,11 +19,11 @@ public class D05_hoverCategoriesStepDef {
     public void userHoverToCategoryAndClickOnOneOfSub_category() throws InterruptedException {
         Actions actions = new Actions(driver);
         Random random = new Random();
-        int nuOfCategories = 0;
-        int subCategory = 0;
+        int nuOfCategories ;
+        int subCategory ;
         nuOfCategories = 1 + random.nextInt(2);
         subCategory = 1 + random.nextInt(2);
-        actions.moveToElement((WebElement) homePage.categories().get(nuOfCategories)).perform();
+        actions.moveToElement( homePage.categories().get(nuOfCategories)).perform();
         Thread.sleep(2000);
         String categoriesText = homePage.categories().get(nuOfCategories).getText();
         if (categoriesText.contains("computer")) {
@@ -48,13 +48,11 @@ public class D05_hoverCategoriesStepDef {
     @Then("user go to sub-category")
     public void userGoToSubCategory() {
         Random random = new Random();
-        int nuOfCategories = 0;
-        int subCategory = 0;
+        int nuOfCategories ;
+        int subCategory ;
         nuOfCategories = 1 + random.nextInt(2);
         subCategory = 1 + random.nextInt(2);
         String categoriesText = homePage.categories().get(nuOfCategories).getText();
-        String computerSubCategoryText = homePage.computerSubCategory(subCategory).getText();
-        String electronicsSubCategoryText = homePage.electronicsSubCategory(subCategory).getText();
         if (categoriesText.contains("computer")) {
             Assert.assertTrue(homePage.getCurrentUrl().toLowerCase().trim()
                             .contains(homePage.computerSubCategory(subCategory).getText().toLowerCase().trim()),
