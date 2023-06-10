@@ -12,61 +12,51 @@ import static org.example.stepDefs.Hooks.driver;
 
 public class D05_hoverCategoriesStepDef {
     P03_homePage homePage = new P03_homePage();
-
+    Actions actions = new Actions(driver);
+    Random random = new Random();
+    int nuOfCategories = random.nextInt(2);
+    ;
+    int subCategory = 1 + random.nextInt(2);
+    ;
 
     @When("user hover to category and click on one of sub-category")
     public void userHoverToCategoryAndClickOnOneOfSub_category() throws InterruptedException {
-        Actions actions = new Actions(driver);
-        Random random = new Random();
-        int nuOfCategories ;
-        int subCategory ;
-        nuOfCategories = 1 + random.nextInt(2);
-        subCategory = 1 + random.nextInt(2);
-        actions.moveToElement( homePage.categories().get(nuOfCategories)).perform();
+        actions.moveToElement(homePage.categories().get(nuOfCategories)).perform();
         Thread.sleep(2000);
         String categoriesText = homePage.categories().get(nuOfCategories).getText();
-        if (categoriesText.contains("computer")) {
-            actions.moveToElement(homePage.computerSubCategory(subCategory));
-            actions.click().perform();
-       }
+        System.out.println(homePage.linkText(nuOfCategories).get(subCategory).getText());
+        if (categoriesText.contains("Computers")) {
+            actions.moveToElement(homePage.computerSubCategory(subCategory)).click().perform();
+        }
         else if (categoriesText.contains("Electronics")) {
-            actions.moveToElement(homePage.electronicsSubCategory(subCategory));
-            actions.click().perform();
-       }
+            actions.moveToElement(homePage.electronicsSubCategory(subCategory)).click().perform();
+
+        }
         else {
-          actions.moveToElement(homePage.apparelSubCategory(subCategory));
-          actions.click().perform();
+            actions.moveToElement(homePage.apparelSubCategory(subCategory)).click().perform();
 
-       }
-
-
+        }
         Thread.sleep(2000);
     }
-
-
     @Then("user go to sub-category")
     public void userGoToSubCategory() {
-        Random random = new Random();
-        int nuOfCategories ;
-        int subCategory ;
-        nuOfCategories = 1 + random.nextInt(2);
-        subCategory = 1 + random.nextInt(2);
+
         String categoriesText = homePage.categories().get(nuOfCategories).getText();
-        if (categoriesText.contains("computer")) {
+        if (categoriesText.contains("Computers")) {
             Assert.assertTrue(homePage.getCurrentUrl().toLowerCase().trim()
                             .contains(homePage.computerSubCategory(subCategory).getText().toLowerCase().trim()),
                     "not found it");
-            System.out.println(homePage.computerSubCategory(subCategory).getText());
+            System.out.println(homePage.getCurrentUrl().toLowerCase().trim());
         } else if (categoriesText.contains("Electronics")) {
             Assert.assertTrue(homePage.getCurrentUrl().toLowerCase().trim()
                             .contains(homePage.electronicsSubCategory(subCategory).getText().toLowerCase().trim()),
                     "not found it");
-            System.out.println(homePage.electronicsSubCategory(subCategory).getText());
+            System.out.println(homePage.getCurrentUrl().toLowerCase().trim());
         } else {
             Assert.assertTrue(homePage.getCurrentUrl().toLowerCase().trim().
                             contains(homePage.apparelSubCategory(subCategory).getText().toLowerCase().trim()),
                     "not found it");
-            System.out.println(homePage.apparelSubCategory(subCategory).getText());
+            System.out.println(homePage.getCurrentUrl().toLowerCase().trim());
         }
 
 
