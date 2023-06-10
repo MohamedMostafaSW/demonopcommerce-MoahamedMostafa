@@ -15,16 +15,15 @@ public class D05_hoverCategoriesStepDef {
     Actions actions = new Actions(driver);
     Random random = new Random();
     int nuOfCategories = random.nextInt(2);
-    ;
+
     int subCategory = 1 + random.nextInt(2);
-    ;
+
 
     @When("user hover to category and click on one of sub-category")
     public void userHoverToCategoryAndClickOnOneOfSub_category() throws InterruptedException {
         actions.moveToElement(homePage.categories().get(nuOfCategories)).perform();
         Thread.sleep(2000);
         String categoriesText = homePage.categories().get(nuOfCategories).getText();
-        System.out.println(homePage.linkText(nuOfCategories).get(subCategory).getText());
         if (categoriesText.contains("Computers")) {
             actions.moveToElement(homePage.computerSubCategory(subCategory)).click().perform();
         }

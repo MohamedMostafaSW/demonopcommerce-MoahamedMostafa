@@ -54,7 +54,7 @@ public class D01_registerStepDef {
     }
     @When("user enter email")
     public void userEnterEmail(){
-        register.userEnterEmail().sendKeys("test@example12549.com");
+        register.userEnterEmail().sendKeys("test@example.com");
     }
     @When("user fills Password fields")
     public void userFillsPasswordFields(){
