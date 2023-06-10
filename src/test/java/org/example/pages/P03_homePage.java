@@ -69,6 +69,9 @@ public class P03_homePage {
     public WebElement wishListButtonForPage(){
         return Hooks.driver.findElement(By.className("wishlist-label"));
     }
+    public List<WebElement> clickOnSlider(){
+        return Hooks.driver.findElements(By.xpath("//*[@id=\"nivo-slider\"]/a"));
+    }
 
 
 }
