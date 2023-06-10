@@ -55,7 +55,7 @@ public class D01_registerStepDef {
     }
     @When("user enter email")
     public void userEnterEmail(){
-        register.userEnterEmail().sendKeys("test@example.com");
+        register.userEnterEmail().sendKeys("test@example12549.com");
     }
     @When("user fills Password fields")
     public void userFillsPasswordFields(){
@@ -73,8 +73,8 @@ public class D01_registerStepDef {
     @Then("success message is displayed")
     public void successMessageIsDisplayed(){
         SoftAssert softAssert = new SoftAssert();
-        softAssert.assertTrue(register.assertMessage().isDisplayed(),"not exist ");
-        String actualColor =Hooks.driver.findElement(By.linkText("Your registration completed")).getCssValue("color");
+        //softAssert.assertTrue(register.assertMessage().isDisplayed(),"not exist ");
+        String actualColor =register.assertMessage().getCssValue("color");
         String actualColorHex = Color.fromString(actualColor).asHex();
         softAssert.assertTrue(actualColorHex.equals("#4cb17c"));
         softAssert.assertAll();

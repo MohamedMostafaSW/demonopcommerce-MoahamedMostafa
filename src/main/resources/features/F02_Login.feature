@@ -1,5 +1,5 @@
 @smoke
-Feature: F02_Login | users could use login functionality to use their accounts
+Feature: FO2_Login | users could use login functionality to use their accounts
   Scenario: user could login with valid email and password
  Given user go to login page
   When user login with valid "test@example.com" and "P@ssw0rd"

@@ -1,6 +1,5 @@
 package org.example.stepDefs;
 
-import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.example.pages.P03_homePage;
@@ -23,8 +22,10 @@ public class D03_currenciesStepDef {
     public void userCouldSeeChangesHappenToItems(){
 
         for (int i = 0; i < homePage.listOfItems().size(); i++ ){
-            Assert.assertTrue(homePage.item().getText().contains("€"),"wrong solution ");
+            Assert.assertTrue(homePage.listOfItems().get(i).getText().contains("€"),"wrong solution");
+            System.out.println(homePage.listOfItems().get(i).getText());
         }
+
         System.out.println(homePage.listOfItems().size());
 
 

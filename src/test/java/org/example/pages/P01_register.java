@@ -16,7 +16,7 @@ public class P01_register {
     By userEnterPassword= By.id("Password");
     By userEnterPasswordConfirm= By.id("ConfirmPassword");
     By userClickOnRegister= By.id("register-button");
-    By assertMessage = By.className("ico-logout");
+    By assertMessage = By.className("result");
     public WebElement registerlink()
     {
         return Hooks.driver.findElement(registerlink);
