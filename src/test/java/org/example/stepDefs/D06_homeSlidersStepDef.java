@@ -3,6 +3,7 @@ package org.example.stepDefs;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.example.pages.P03_homePage;
+import org.openqa.selenium.ElementClickInterceptedException;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.asserts.SoftAssert;
@@ -16,9 +17,9 @@ public class D06_homeSlidersStepDef {
 
     @When("user click on first slider")
     public void userClickOnFirstSlider()  {
-        WebDriverWait wait = new WebDriverWait(Hooks.driver, Duration.ofSeconds(5));
-        wait.until(ExpectedConditions.visibilityOf(homePage.clickOnSlider().get(0)));
-        homePage.clickOnSlider().get(0).click();
+        WebDriverWait wait = new WebDriverWait(Hooks.driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.elementToBeClickable(homePage.clickOnSlider().get(1)));
+        homePage.clickOnSlider().get(1).click();
 
     }
 
@@ -31,8 +32,8 @@ public class D06_homeSlidersStepDef {
 
     @When("user click on second slider")
     public void userClickOnSecondSlider() {
-        WebDriverWait wait = new WebDriverWait(Hooks.driver, Duration.ofSeconds(5));
-       wait.until(ExpectedConditions.elementToBeClickable(homePage.clickOnSlider().get(1)));
-        homePage.clickOnSlider().get(1).click();
+        WebDriverWait wait = new WebDriverWait(Hooks.driver, Duration.ofSeconds(10));
+       wait.until(ExpectedConditions.elementToBeClickable(homePage.clickOnSlider().get(0)));
+        homePage.clickOnSlider().get(0).click();
     }
 }

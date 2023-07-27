@@ -18,6 +18,7 @@ public class Hooks {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.get("https://demo.nopcommerce.com/");
 
+
     }
     @After
     public static void quitDriver(){

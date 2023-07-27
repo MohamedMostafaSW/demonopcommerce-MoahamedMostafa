@@ -73,5 +73,4 @@ public class P03_homePage {
         return Hooks.driver.findElements(By.xpath("//*[@id=\"nivo-slider\"]/a"));
     }
 
-
 }
