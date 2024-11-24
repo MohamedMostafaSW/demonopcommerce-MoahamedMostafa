@@ -12,7 +12,7 @@ public class Hooks {
 
     @Before
     public static void OpenBrowser() {
-
+        System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/src/main/resources/chromedriver.exe");
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
